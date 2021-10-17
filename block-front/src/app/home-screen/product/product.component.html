@@ -1,0 +1,41 @@
+<ng-container *ngIf = "product">
+  <div class = "product-holder card-body">
+    <img [src]="product.image" class = "product-image">
+    <span>{{product.name}} - {{product.price}} {{product.currency}}</span>
+    <br>
+    <span>Вес: {{product.weight}}</span>
+    
+    <button class ="btn btn-success col-12" (click)="openModal(template)">Заказать</button>
+  </div>
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Заказать {{product.name}}</h4>
+      <svg class="close" (click)="closeModal()" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.59 7L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41L15.59 7Z" fill="#2E3A59"/>
+      </svg>
+    </div>
+    <div class="modal-body">
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)] = "formData.delivery_start" aria-label="Default" placeholder="delivery_start" aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)] = "formData.delivery_date" aria-label="Default" placeholde = "delivery_date" aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div class="form-group">    
+        <label for="entitySelect">Выберите количество</label>
+        <select class="form-control" id="entitySelect" [(ngModel)] = "formData.entity">
+          <option *ngFor='let key of [].constructor(product.entity); let i = index'>
+            {{i}} 
+          </option>
+        </select>
+      </div>
+      <button class ="btn btn-success col-12" (click) ="Order()">Заказать</button>
+    
+    </div>
+  </ng-template>
+
+</ng-container>

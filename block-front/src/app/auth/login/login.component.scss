@@ -1,0 +1,47 @@
+.card {
+  width: 350px;
+  padding: 10px;
+  border-radius: 20px;
+  background: #fff;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0px 0px 32px -10px rgba(0, 47, 82, 0.2); 
+  position: relative;
+}
+
+.btn{
+  margin: 24px 0px;
+}
+
+.container {
+  height: 100vh
+}
+
+.form-control {
+  margin-right: 12px;
+}
+
+.form-control:focus {
+  color: #495057;
+  border-color: #ff8880;
+  outline: 0;
+  box-shadow: none
+}
+
+.cursor {
+  cursor: pointer
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.form-control{
+  border-radius: 8px;
+}

@@ -1,0 +1,18 @@
+<ng-container *ngIf = "list">
+  <div *ngFor = "let order of list" class = "card-cst col-6">
+    <div class = "prod-name">
+      <img [src]="order.product.image" class = "order-prod-img">
+      <p>
+        {{order.product.name}}
+        <br>
+        Дата доставки: {{order.delivery_date | date: "YYYY-MM-dd hh:mm"}}
+        <br>
+        Дата отправки: {{order.delivery_start | date: "YYYY-MM-dd hh:mm"}}
+      </p>
+    </div>
+    <div [ngStyle]="{'color':order.color}">
+      <!-- {{order.}} -->
+      {{order.status}}
+    </div>
+  </div>
+</ng-container>
