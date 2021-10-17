@@ -17,17 +17,19 @@
     </div>
     <div class="modal-body">
 
+      <label for="entitySelect">Введите дату отправки</label>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" [(ngModel)] = "formData.delivery_start" aria-label="Default" placeholder="delivery_start" aria-describedby="inputGroup-sizing-default">
+        <input type="date" class="form-control" [(ngModel)] = "formData.delivery_start" aria-label="Default" placeholder="delivery_start" aria-describedby="inputGroup-sizing-default">
       </div>
 
+      <label for="entitySelect">Введите дату доставки</label>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" [(ngModel)] = "formData.delivery_date" aria-label="Default" placeholde = "delivery_date" aria-describedby="inputGroup-sizing-default">
+        <input type="date" class="form-control" [(ngModel)] = "formData.delivery_date" aria-label="Default" placeholde = "delivery_date" aria-describedby="inputGroup-sizing-default">
       </div>
 
       <div class="form-group">    
         <label for="entitySelect">Выберите количество</label>
-        <select class="form-control" id="entitySelect" [(ngModel)] = "formData.entity">
+        <select type = "number" class="form-control" id="entitySelect" [(ngModel)]="formData.entity">
           <option *ngFor='let key of [].constructor(product.entity); let i = index'>
             {{i}} 
           </option>

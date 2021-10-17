@@ -7,13 +7,13 @@ from market.serializers.product_ser import ProductSerilizer
 User = get_user_model()
 
 class OrderSerializer(serializers.ModelSerializer):
+  product = ProductSerilizer(read_only = True)
   class Meta:
     model = Order
     fields = '__all__'
 
 
 class CreateOrderSerializer(serializers.ModelSerializer):
-  product = ProductSerilizer(read_only = True)
   class Meta:
     model = Order
     fields = "__all__"
@@ -24,7 +24,7 @@ class CreateOrderSerializer(serializers.ModelSerializer):
     return instance
 
   def create(self, validated_data):
-    print(validated_data['product'])
+    print(validated_data)
     product = Product_coffee.objects.get(id = validated_data['product'].id)
     validated_data['price'] = product.price * validated_data['entity']
     validated_data['weight'] = product.weight * validated_data['entity']

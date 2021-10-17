@@ -30,6 +30,6 @@ class CreateOrder(APIView):
 
 class OrderList(generics.ListAPIView):
   permission_classes = [permissions.IsAuthenticated]
-  serializer_class = CreateOrderSerializer
+  serializer_class = OrderSerializer
   def get_queryset(self):
       return Order.objects.filter(user = self.request.user.id)
