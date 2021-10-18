@@ -58,8 +58,6 @@ export class ProductComponent implements OnInit {
   }
 
   Order(){
-    console.log(new Date(this.formData.delivery_start).toISOString())
-    // console.log(this.formData.delivery_date)
     this.productService.createOrder(this.formData).subscribe(data=>{
       alert(`Ваш заказ был создан, к оплате ${data.price}, вес товара - ${data.weight}`)
       this.modalRef?.hide()
